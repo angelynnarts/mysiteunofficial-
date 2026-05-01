@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Angelynn Arts</title>
     <style>
-        /* 1. Font Definitions from GitHub */
+        /* 1. Font Definitions - Corrected Links */
         @font-face {
             font-family: 'BodoniModa';
             src: url('https://githubusercontent.com') format('truetype');
@@ -25,36 +27,36 @@
             font-display: swap;
         }
 
-        /* 2. Your Original Iframer Layout */
+        /* 2. Layout & Banner Fix */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            width: 100%;
             overflow: hidden; 
+            background-color: #ffffff; /* Match your background */
         }
+
         .iframe-container {
             position: absolute;
             top: -50px; 
             left: 0;
             width: 100%;
-            height: calc(100% + 50px); 
+            height: calc(100% + 50px);
+            display: flex;
         }
-iframe {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-}
 
+        iframe {
+            width: 100vw !important;
+            height: 100% !important;
+            border: none;
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
     <div class="iframe-container">
-        <iframe 
-            src="https://angelynnarts.wixsite.com/angelynnarts" 
-            style="width:100vw; height:100%;" 
-            allowfullscreen>
-        </iframe>
+        <iframe src="https://wixsite.com" allowfullscreen></iframe>
     </div>
 </body>
-
 </html>
