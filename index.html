@@ -1,19 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <style>
+        /* 1. Font Definitions from GitHub */
+        @font-face {
+            font-family: 'BodoniModa';
+            src: url('https://githubusercontent.com') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'EloquentJF';
+            src: url('https://githubusercontent.com') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'IvyPresto';
+            src: url('https://githubusercontent.com') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'JeanneModerno';
+            src: url('https://githubusercontent.com') format('truetype');
+            font-display: swap;
+        }
+
+        /* 2. Your Original Iframer Layout */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Prevents double scrollbars */
+            overflow: hidden; 
         }
         .iframe-container {
             position: absolute;
-            top: -50px; /* Adjust this value to hide the banner height */
+            top: -50px; 
             left: 0;
             width: 100%;
-            height: calc(100% + 50px); /* Increases height to compensate for offset */
+            height: calc(100% + 50px); 
         }
         iframe {
             width: 100%;
