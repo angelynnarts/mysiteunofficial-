@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angelynn Arts</title>
     <style>
-        /* 1. Font Definitions using jsDelivr for stability */
+        /* 1. FONT DEFINITIONS (jsDelivr stable links) */
         @font-face {
             font-family: 'BodoniModa';
             src: url('https://jsdelivr.net') format('truetype');
@@ -27,12 +27,10 @@
             font-display: swap;
         }
 
-        /* 2. Layout & Banner Fix */
+        /* 2. BASE LAYOUT */
         body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
+            margin: 0; padding: 0;
+            height: 100%; width: 100%;
             overflow: hidden; 
             background-color: #ffffff;
         }
@@ -44,20 +42,57 @@
             width: 100%;
             height: calc(100% + 50px);
             display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
 
         iframe {
-            width: 100vw !important;
-            height: 100% !important;
             border: none;
-            flex-grow: 1;
+            width: 320px; /* Base Wix Mobile Width */
+            height: 100%;
+            transform-origin: 0 0;
+            transition: transform 0.3s ease; /* Smooth transition if rotating phone */
+        }
+
+        /* 3. DESKTOP OVERRIDE (Large Screens) */
+        @media (min-width: 769px) {
+            iframe {
+                width: 100% !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="iframe-container">
-        <!-- Using your EXACT real live link -->
-        <iframe src="https://angelynnarts.wixsite.com/angelynnarts" allowfullscreen></iframe>
+        <iframe id="wixIframe" src="https://wixsite.com" allowfullscreen></iframe>
     </div>
+
+    <!-- 4. UNIVERSAL AUTO-MATH SCRIPT -->
+    <script>
+        function adjustMobileScaling() {
+            var screenWidth = window.innerWidth;
+            var iframe = document.getElementById('wixIframe');
+            
+            // Only apply math on mobile screens (less than 769px)
+            if (screenWidth <= 768) {
+                var wixDefaultWidth = 320; 
+                var scaleFactor = screenWidth / wixDefaultWidth;
+                
+                // Set the width of the iframe back to the Wix base so it scales properly
+                iframe.style.width = wixDefaultWidth + "px";
+                iframe.style.transform = "scale(" + scaleFactor + ")";
+                
+                // Adjust container height to match scaled content
+                document.querySelector('.iframe-container').style.height = (100 / scaleFactor) + "%";
+            }
+        }
+
+        // Run when page loads and when phone is rotated
+        window.addEventListener('load', adjustMobileScaling);
+        window.addEventListener('resize', adjustMobileScaling);
+    </script>
+
 </body>
 </html>
