@@ -6,30 +6,35 @@
     <title>Angelynn Arts</title>
 
     <style>
-        /* RESET + BACKGROUND */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             background-color: #F3DEFA;
-            overflow: hidden; /* prevents all scrolling */
+            overflow: hidden;
         }
 
-        /* FULLSCREEN IFRAME CONTAINER */
         .iframe-container {
-            position: fixed; /* locks it to screen */
-            top: 0;
+            position: fixed;
+            top: -60px; /* 👈 hides Wix banner */
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% + 60px); /* compensate */
         }
 
-        /* IFRAME */
         iframe {
             width: 100%;
             height: 100%;
             border: none;
             display: block;
+        }
+
+        /* Slight adjustment for mobile */
+        @media (max-width: 768px) {
+            .iframe-container {
+                top: -70px;
+                height: calc(100% + 70px);
+            }
         }
     </style>
 </head>
